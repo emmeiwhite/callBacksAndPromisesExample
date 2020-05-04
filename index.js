@@ -8,8 +8,10 @@ const promise = new Promise((resolve, reject) => {
 
 promise
   .then(result => {
+    throw Error;
     return result + "!!!";
   })
   .then(result2 => {
     console.log(result2);
-  });
+  })
+  .catch(err => console.log("ERROR !!!"));
