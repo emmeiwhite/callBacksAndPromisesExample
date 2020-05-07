@@ -33,7 +33,7 @@ promise
 --- */
 
 
-/**  --- Promise.all([promise1,promise2,promise3,...,promiseN]) --- */
+/**  --- Promise.all([promise1,promise2,promise3,...,promiseN]) 
 
 const promise2 = new Promise((resolve, reject) => {
   setTimeout(resolve, 100, "Promise 2 Hi");
@@ -59,3 +59,40 @@ Promise.all([promise, promise2, promise3, promise4, promise5])
     console.log(typeof values);
   });
 
+
+  --- */
+
+
+/**  --- Practical Use of Promise 
+
+const urls = [
+  "https://jsonplaceholder.typicode.com/users",
+  "https://jsonplaceholder.typicode.com/posts",
+  "https://jsonplaceholder.typicode.com/albums"
+];
+
+Promise.all(urls.map(url => fetch(url).then(result => result.json()).then(ourPromises => ourPromises)))
+  .then(values => {
+    console.log(values);
+  })
+  .catch(err => {
+    console.log("ERROR !!!");
+  });
+
+  --- */
+
+/** --- Async - Await ---
+ * Syntactical Sugar on top og Promises.
+ * Making use of promises only
+ * The Syntax is more synchronous looking
+ */
+
+
+const getAlbums = async () => {
+  const promise1 = await fetch("https://jsonplaceholder.typicode.com/users"); // pause
+  const promise2 = await promise1.json(); // apuse
+
+  console.log(promise2);
+}
+
+getAlbums();
