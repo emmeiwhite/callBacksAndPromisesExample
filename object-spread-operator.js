@@ -7,7 +7,7 @@ const animals = {
   cat: 3
 }
 
-// ES 2017
+// ES9-Feature --- ECMAScript 2018 feature
 
 const { monkey, tiger, ...rest } = animals; // ... three dots used as the rest operator 
 
