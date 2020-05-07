@@ -33,7 +33,7 @@ promise
 --- */
 
 
-/**  --- Promise.all([promise1,promise2,promise3,...,promiseN]) 
+/**  --- Promise.all([promise1,promise2,promise3,...,promiseN])
 
 const promise2 = new Promise((resolve, reject) => {
   setTimeout(resolve, 100, "Promise 2 Hi");
@@ -63,7 +63,7 @@ Promise.all([promise, promise2, promise3, promise4, promise5])
   --- */
 
 
-/**  --- Practical Use of Promise 
+/**  --- Practical Use of Promise | let's use finally --- */
 
 const urls = [
   "https://jsonplaceholder.typicode.com/users",
@@ -73,19 +73,21 @@ const urls = [
 
 Promise.all(urls.map(url => fetch(url).then(result => result.json()).then(ourPromises => ourPromises)))
   .then(values => {
+    throw Error;
     console.log(values);
   })
   .catch(err => {
-    console.log("ERROR !!!");
-  });
+    console.log("ERROR !!!, I Throwed an Error");
+  })
+  .finally(() => { console.log("I run no matter what. I am Finally") });
 
-  --- */
+
 
 /** --- Async - Await ---
  * Syntactical Sugar on top og Promises.
  * Making use of promises only
  * The Syntax is more synchronous looking
- */
+
 
 
 const getAlbums = async () => {
@@ -97,11 +99,11 @@ const getAlbums = async () => {
 
 getAlbums();
 
-
+---*/
 
 /**   --- Practical Example ---  Async->Await
  *
- */
+
 
 const urls = [
   "https://jsonplaceholde.typicode.com/users",
@@ -124,5 +126,7 @@ const getData = async () => {
   }
 
 }
+
+---- */
 
 
