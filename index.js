@@ -96,3 +96,33 @@ const getAlbums = async () => {
 }
 
 getAlbums();
+
+
+
+/**   --- Practical Example ---  Async->Await
+ *
+ */
+
+const urls = [
+  "https://jsonplaceholde.typicode.com/users",
+  "https://jsonplaceholder.typicode.com/posts",
+  "https://jsonplaceholder.typicode.com/albums"
+]
+
+
+const getData = async () => {
+
+  try {
+    const [users, posts, albums] = await Promise.all(urls.map(url => fetch(url).
+      then(result => result.json()).then(data => data)));
+
+    console.log(users);
+    console.log(posts);
+    console.log(albums);
+  } catch (err) {
+    console.log("Something Went Wrong !!!");
+  }
+
+}
+
+
