@@ -11,7 +11,7 @@ const animals = {
 
 const { monkey, tiger, ...rest } = animals; // ... three dots used as the rest operator 
 
-console.log(rest); // {parrot:8,elephant:1}
+console.log(rest); // {parrot:8,elephant:1,cat:3}
 
 
 /** --- lets make use of spread operator in function call */
@@ -21,8 +21,6 @@ const getAnimals = (a1, a2, a3, a4, a5) => {
   console.log(a1);
   console.log(a2);
   console.log(a3);
-  console.log(a4);
-  console.log(a5);
 }
 
-getAnimals({ ...animals }); // This is making use of the spread operator, we are spreading our object elements :)
+getAnimals(monkey, tiger, rest); // This is making use of the spread operator, we are spreading our object elements :)
